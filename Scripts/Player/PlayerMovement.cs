@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
 
     public float jumpHeight = 3f;
+
+    public Animator animator;
  
     void Update()
     {
@@ -33,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
 
         float z = Input.GetAxis("Vertical");
+
+        animator.SetFloat("VelX", x);
+
+        animator.SetFloat("VelZ", z);
 
         Vector3 move = transform.right * x + transform.forward * z;
 
